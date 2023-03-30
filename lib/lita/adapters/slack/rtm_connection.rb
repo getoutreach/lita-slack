@@ -104,6 +104,7 @@ module Lita
 
         def websocket_options
           options = { ping: 10 }
+          options[:tls] = { :verify_peer => false } # temporarily workaround ca issue while working on Wheatley's replacement
           options[:proxy] = { :origin => config.proxy } if config.proxy
           options
         end
